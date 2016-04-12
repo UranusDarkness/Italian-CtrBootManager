@@ -1,4 +1,4 @@
-#CtrBootManager
+#Italian CtrBootManager
 
 CtrBootManager is a boot manager for some 3DS homebrew applications, like HBL and CFW.
 
@@ -30,6 +30,7 @@ Binaries should now be in the `build` folder.
  * Fluto : graphics
  * Arkhandar : graphics
  * dotjasp : graphics (regionfree icon)
+ * UranusDarkness: italian translation
 
 ###Other credits:
 Readme by gemarcano
