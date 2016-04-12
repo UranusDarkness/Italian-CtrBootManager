@@ -122,7 +122,7 @@ int menu_config() {
         }
 
         drawBg();
-        drawTitle("*** Boot configuration ***");
+        drawTitle("*** Opzioni di avvio ***");
 
         drawItem(menu_index == 0, 0, "Timeout:  %i", config->timeout);
         drawItem(menu_index == 1, 16, "Default:  %s", config->entries[config->index].title);

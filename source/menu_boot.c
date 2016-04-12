@@ -115,7 +115,7 @@ int menu_boot() {
         else if (kDown & KEY_X) {
             timer = false;
             if (boot_index != config->count) {
-                if (confirm(3, "Delete boot entry: \"%s\" ?\n", config->entries[boot_index].title)) {
+                if (confirm(3, "Elimina voce: \"%s\" ?\n", config->entries[boot_index].title)) {
                     configRemoveEntry(boot_index);
                     boot_index = config->index;
                 }
@@ -135,23 +135,23 @@ static void draw(int boot_index, time_t elapsed) {
     drawBg();
 
     if (!timer) {
-        drawTitle("*** Select a boot entry ***");
+        drawTitle("*** Seleziona una voce ***");
     } else {
-        drawTitle("*** Booting %s in %i ***", config->entries[boot_index].title, config->timeout - elapsed);
+        drawTitle("*** Avvio %s in %i ***", config->entries[boot_index].title, config->timeout - elapsed);
     }
 
     for (i = 0; i < config->count; i++) {
         drawItem(i == boot_index, 16 * i, config->entries[i].title);
         if (i == boot_index) {
-            drawInfo("Name: %s\nPath: %s\nOffset: 0x%lx\n\n\nPress (A) to launch\nPress (X) to remove entry\n",
+            drawInfo("Nome: %s\nCartella: %s\nOffset: 0x%lx\n\n\nPremi (A) per avviare\nPremi (X) per rimuovere voce\n",
                      config->entries[i].title,
                      config->entries[i].path,
                      config->entries[i].offset);
         }
     }
-    drawItem(boot_index == config->count, 16 * i, "More...");
+    drawItem(boot_index == config->count, 16 * i, "Altro");
     if (boot_index == config->count) {
-        drawInfo("Show more options ...");
+        drawInfo("Mostra altre opzioni");
     }
 
     gfxSwap();

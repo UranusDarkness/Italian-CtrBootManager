@@ -47,8 +47,8 @@ int menu_netloaderarm9(void) {
 
     char msg[256];
     sprintf(msg,
-            "NetLoader Active - waiting for arm9\n\n"
-                    "IP: %s, Port: %d\n\nPress B to cancel\n",
+            "NetLoader Attivato - attendendo per arm9\n\n"
+                    "IP: %s, Porta: %d\n\nPremi B per annullare\n",
             inet_ntoa(sa.sin_addr), BRAHMA_NETWORK_PORT);
     drawBg();
     gfxDrawTextf(GFX_TOP, GFX_LEFT, &fontDefault, MENU_MIN_X + 16, MENU_MIN_Y + 16, msg);
@@ -88,7 +88,7 @@ int menu_netloaderarm9(void) {
             gfxSwap();
         }
         if (total >= ARM9_PAYLOAD_MAX_SIZE) {
-            debug("Err: invalid payload size\n");
+            debug("Errore: dimensione payload non valida\n");
             close(clientfd);
             close(sockfd);
             free(arm9_buf);
@@ -104,7 +104,7 @@ int menu_netloaderarm9(void) {
 
     brahma_init();
     if (load_arm9_payload_from_mem(arm9_buf, total) != 1) {
-        debug("Err: Couldn't load arm9 payload...\n");
+        debug("Errore: Impossibile caricare arm9 payload\n");
         return -1;
     }
     firm_reboot();

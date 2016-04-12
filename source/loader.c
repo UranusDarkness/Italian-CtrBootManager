@@ -53,14 +53,14 @@ int load_bin(char *path, long offset) {
 
     if (brahma_init()) {
         if (load_arm9_payload_offset(path, (u32) offset, 0x10000) != 1) {
-            debug("Err: Couldn't load arm9 payload...\n");
+            debug("Err: Impossibile caricare arm9 payload\n");
             return -1;
         }
         firm_reboot();
         brahma_exit();
 
     } else {
-        debug("Err: Couldn't init brahma...\n");
+        debug("Err: Impossibile iniziallizare brahma\n");
         return -1;
     }
 
@@ -89,7 +89,7 @@ int load(char *path, long offset) {
             return load_3dsx(path);
 #endif
         } else {
-            debug("Invalid file: %s\n", path);
+            debug("File non valido: %s\n", path);
             return -1;
         }
     }

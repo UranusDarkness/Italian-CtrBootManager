@@ -81,6 +81,6 @@ void drawInfo(const char *format, ...) {
     vsnprintf(msg, 512, format, argp);
     va_end(argp);
 
-    gfxDrawText(GFX_BOTTOM, GFX_LEFT, &fontDefault, "Informations", (s16) (MENU_MIN_X + 6), 40);
+    gfxDrawText(GFX_BOTTOM, GFX_LEFT, &fontDefault, "Informazioni", (s16) (MENU_MIN_X + 6), 40);
     gfxDrawText(GFX_BOTTOM, GFX_LEFT, &fontDefault, msg, (s16) (MENU_MIN_X + 12), 80);
 }

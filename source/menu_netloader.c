@@ -16,9 +16,9 @@ int menu_netloader() {
     char msg[256];
     u32 ip = (u32) gethostid();
     sprintf(msg,
-            "NetLoader Active - waiting for 3dslink\n\n"
-                    "IP: %lu.%lu.%lu.%lu, Port: %d\n\n"
-                    "Press B to cancel\n",
+            "NetLoader Attivato - attendendo per 3dslink\n\n"
+                    "IP: %lu.%lu.%lu.%lu, Porta: %d\n\n"
+                    "Premi B per annullare\n",
             ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF, NETLOADER_PORT);
 
     drawBg();

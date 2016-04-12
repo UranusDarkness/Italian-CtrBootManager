@@ -136,7 +136,7 @@ void get_dir(const char *path) {
 static void draw() {
 
     drawBg();
-    drawTitle("*** Select a file ***");
+    drawTitle("*** Scegli un file ***");
 
     int i, y = 0;
     int page = picker->file_index / MAX_LINE;
@@ -146,7 +146,7 @@ static void draw() {
 
         drawItemN(i == picker->file_index, 47, 16 * y, picker->files[i].name);
         if (i == picker->file_index && !picker->files[i].isDir) {
-            drawInfo("Press (A) to launch\nPress (X) to add to boot menu");
+            drawInfo("Premi (A) per avviare\nPremi (X) per aggiungere come voce");
 
         }
         y++;
@@ -228,7 +228,7 @@ void pick_file(file_s *picked, const char *path) {
             if (picker->file_count > 0) {
                 int index = picker->file_index;
                 if (!picker->files[index].isDir) {
-                    if (confirm(0, "Launch \"%s\" ?", picker->files[index].name)) {
+                    if (confirm(0, "Avviare \"%s\" ?", picker->files[index].name)) {
                         strncpy(picked->name, picker->files[index].name, 128);
                         strncpy(picked->path, picker->files[index].path, 256);
                         picked->isDir = picker->files[index].isDir;
@@ -249,13 +249,13 @@ void pick_file(file_s *picked, const char *path) {
 #else
                 if (strcasecmp(ext, "3dsx") == 0) {
 #endif
-                    if (confirm(3, "Add entry to boot menu: \"%s\" ?", picker->files[index].name)) {
+                    if (confirm(3, "Aggiungi voce al menu: \"%s\" ?", picker->files[index].name)) {
                         if (config->count > CONFIG_MAX_ENTRIES - 1) {
-                            debug("Maximum entries reached (%i)\n", CONFIG_MAX_ENTRIES);
+                            debug("Voci massime raggiunte (%i)\n", CONFIG_MAX_ENTRIES);
                         } else if (configAddEntry(picker->files[index].name, picker->files[index].path, 0) == 0) {
-                            debug("Added entry: %s\n", picker->files[index].name);
+                            debug("Aggiunta voce: %s\n", picker->files[index].name);
                         } else {
-                            debug("Error adding entry: %s\n", picker->files[index].name);
+                            debug("Errore aggiungendo voce: %s\n", picker->files[index].name);
                         }
                     }
                 }

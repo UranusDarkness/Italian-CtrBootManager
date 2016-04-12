@@ -16,11 +16,11 @@
 
 #ifdef ARM9
 #define MENU_COUNT 4
-static char menu_item[4][64] = {"File browser", "Settings", "Reboot", "PowerOff"};
+static char menu_item[4][64] = {"File browser", "Opzioni", "Riavvia", "Spegni"};
 #else
 #define MENU_COUNT 6
 static char menu_item[6][64] = {"File browser", "Netload 3dsx",
-                                 "Netload arm9", "Settings", "Reboot", "PowerOff"};
+                                 "Netload arm9", "Opzioni", "Riavvia", "Spegni"};
 #endif
 
 static int menu_index = 0;
@@ -97,7 +97,7 @@ static void draw() {
     int i = 0;
 
     drawBg();
-    drawTitle("*** Select an option ***");
+    drawTitle("*** Seleziona un'opzione ***");
 
     for (i = 0; i < MENU_COUNT; i++) {
         drawItem(i == menu_index, 16 * i, menu_item[i]);
@@ -107,35 +107,35 @@ static void draw() {
     switch (menu_index) {
 #ifdef ARM9
         case 0:
-            drawInfo("Browse for a file to boot");
+            drawInfo("Cerca un file da avviare");
             break;
         case 1:
-            drawInfo("Edit boot settings");
+            drawInfo("Modifica opzioni di avvio");
             break;
         case 2:
-            drawInfo("Reboot the 3ds...");
+            drawInfo("Riavvia il 3ds");
             break;
         case 3:
-            drawInfo("Shutdown the 3ds...");
+            drawInfo("Spegni il 3ds");
             break;
 #else
         case 0:
-            drawInfo("Browse for a file to boot or add a boot entry");
+            drawInfo("Cerca un file da avviare o da aggiungere come voce");
             break;
         case 1:
-            drawInfo("Netload a file (3dsx) from the computer with 3dslink");
+            drawInfo("Netload un file (3dsx) dal computer tramite 3dslink");
             break;
         case 2:
-            drawInfo("Netload a file (arm9) from the computer with nc");
+            drawInfo("Netload un file (arm9) dal computer tramite nc");
             break;
         case 3:
-            drawInfo("Edit boot settings");
+            drawInfo("Modifica impostazioni di avvio");
             break;
         case 4:
-            drawInfo("Reboot the 3ds...");
+            drawInfo("Riavvia il 3ds");
             break;
         case 5:
-            drawInfo("Shutdown the 3ds...");
+            drawInfo("Spegni il 3ds");
             break;
 #endif
         default:

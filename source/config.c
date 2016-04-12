@@ -164,7 +164,7 @@ int configInit() {
     char buffer[size];
     memset(buffer, 0, size);
     if (fileRead(CONFIG_PATH, buffer, size) != 0) {
-        debug("Could not read config file, creating one...");
+        debug("Impossibile leggere file config, ne sto creando uno");
         configSave(); // write new config file
         return -1;
     }
@@ -172,7 +172,7 @@ int configInit() {
     ctx.bytes_left = strlen(ctx.ptr);
 
     if (ini_parse_stream((ini_reader) ini_buffer_reader, &ctx, handler, config) < 0) {
-        debug("Could not parse config file, creating one...");
+        debug("Impossibile analizzare file config, ne sto creando uno");
         configSave(); // write new config file
         return -1;
     }
@@ -258,7 +258,7 @@ void configSave() {
     unsigned int br = 0;
     f_unlink(CONFIG_PATH);
     if(f_open(&file, CONFIG_PATH, FA_WRITE | FA_CREATE_ALWAYS) != FR_OK) {
-        debug("Could not open cfg: %s", CONFIG_PATH);
+        debug("Impossibile aprire file cfg: %s", CONFIG_PATH);
         return;
     }
     f_write(&file, cfg, size, &br);
