@@ -1,4 +1,4 @@
-#CtrBootManager
+#Italian CtrBootManager
 
 CtrBootManager is a boot manager for some 3DS homebrew applications, like HBL and CFW.
 
@@ -8,10 +8,16 @@ CtrBootManager is a boot manager for some 3DS homebrew applications, like HBL an
 
 ##Building
 ###The recommended way:
- 1. `mkdir build/`
- 2. `cd build/`
- 3. `cmake -DCMAKE_TOOLCHAIN_FILE=../DevkitArm3DS.cmake ../`
- 4. `cmake --build . --target CtrBootManager_a9lh`
+
+1. mkdir build
+
+2. cd build
+
+3. cmake -DCMAKE_TOOLCHAIN_FILE=../DevkitARM3DS.cmake ../ -G "MSYS Makefiles"
+
+4. cmake -DCMAKE_TOOLCHAIN_FILE=../DevkitARM3DS.cmake ../ -G "MSYS Makefiles"
+
+5. cmake --build . --target CtrBootManager_a9lh
 
 Binaries should now be in the `build` folder.
 
@@ -24,6 +30,7 @@ Binaries should now be in the `build` folder.
  * Fluto : graphics
  * Arkhandar : graphics
  * dotjasp : graphics (regionfree icon)
+ * UranusDarkness: italian translation
 
 ###Other credits:
 Readme by gemarcano
